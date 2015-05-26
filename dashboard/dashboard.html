@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" >
+  <meta charset="utf-8">
+  <meta http-equiv="content-script-type" content="text/javascript">
+  <title>Monitoring Dashboard</title>
+
+    <!-- ========== Css Files ========== -->
+  <link href="css/root.css" rel="stylesheet">
+
+  <!-- ================================================
+  jQuery Library
+  ================================================ -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- AngularJS -->
+  <script src="js/angular.min.js"></script>
+  <!-- Firebase -->
+  <script src="js/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="js/angularfire.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
+
+</head>
+  <body ng-controller="SampleCtrl">
+  <!-- Start Page Loading -->
+  <div class="loading"><img src="img/loading.gif" alt="loading-img"></div>
+  <!-- End Page Loading -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+  <!-- START TOP -->
+  <div id="top" class="clearfix">
+
+    <!-- Start App Logo -->
+    <div class="applogo">
+      <a href="dashboard.html" class="logo">DASH</a>
+    </div>
+    <!-- End App Logo -->
+
+  </div>
+  <!-- END TOP -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content" style="margin-left: 0px;">
+
+  <!-- Start Page Header -->
+  <div class="page-header">
+    <h1 class="title">Dashboard</h1>
+      <ol class="breadcrumb">
+        <li class="active">This is a quick overview of some features</li>
+    </ol>
+
+    <!-- Start Page Header Right Div -->
+    <div class="right">
+      <div class="btn-group" role="group" aria-label="...">
+        <a href="#" class="btn btn-light">Dashboard</a>
+        <a href="#" class="btn btn-light" onClick="window.location.reload()"><i class="fa fa-refresh"></i></a>
+      </div>
+    </div>
+    <!-- End Page Header Right Div -->
+
+  </div>
+  <!-- End Page Header -->
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTAINER -->
+<div class="container-widget">
+
+
+  <!-- Start First Row -->
+  <div class="row">
+
+
+    <!-- Start App Stats -->
+    <div class="col-md-12 col-lg-6">
+      <div class="panel panel-widget">
+        <div class="panel-title">
+          Server 1 Stats <a href="#" target="_blank"><span class="label label-default">App</span></a>
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+            <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="panel-search">
+          <form>
+            <input type="text" class="form-control" placeholder="Search...">
+            <i class="fa fa-search icon"></i>
+          </form>
+        </div>
+
+
+        <div class="panel-body table-responsive">
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>ID</td>
+                <td>Parameter</td>
+                <td>Status</td>
+                <td class="text-right">Console</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>965</td>
+                <td>CUP Load</td>
+                <td ng-show="data.alert.app.CPU_Load === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app.CPU_Load === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app.CPU_Load === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app.CPU_Load === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>620</td>
+                <td>Memory</td>
+                <td ng-show="data.alert.app.Mem_Load === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app.Mem_Load === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app.Mem_Load === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app.Mem_Load === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>621</td>
+                <td>Page Load</td>
+                <td ng-show="data.alert.app.Page_Load === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app.Page_Load === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app.Page_Load === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app.Page_Load === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>621</td>
+                <td>MySQL Load</td>
+                <td ng-show="data.alert.app.MySQL === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app.MySQL === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app.MySQL === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app.MySQL === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>621</td>
+                <td>Channel Load</td>
+                <td ng-show="data.alert.app.Agent === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app.Agent === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app.Agent === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app.Agent === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <!-- End App Stats -->
+
+   <!-- Start App2 Stats -->
+    <div class="col-md-12 col-lg-6">
+      <div class="panel panel-widget">
+        <div class="panel-title">
+          Server 2 Stats <a href="#" target="_blank"><span class="label label-default">App2</span></a>
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+            <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="panel-search">
+          <form>
+            <input type="text" class="form-control" placeholder="Search...">
+            <i class="fa fa-search icon"></i>
+          </form>
+        </div>
+
+
+        <div class="panel-body table-responsive">
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>ID</td>
+                <td>Parameter</td>
+                <td>Status</td>
+                <td class="text-right">Console</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>965</td>
+                <td>CUP Load</td>
+                <td ng-show="data.alert.app2.CPU_Load === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app2.CPU_Load === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app2.CPU_Load === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app2.CPU_Load === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>620</td>
+                <td>Memory</td>
+                <td ng-show="data.alert.app2.Mem_Load === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app2.Mem_Load === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app2.Mem_Load === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app2.Mem_Load === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>621</td>
+                <td>Page Load</td>
+                <td ng-show="data.alert.app2.Page_Load === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app2.Page_Load === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app2.Page_Load === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app2.Page_Load === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>621</td>
+                <td>MySQL Load</td>
+                <td ng-show="data.alert.app2.MySQL === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app2.MySQL === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app2.MySQL === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app2.MySQL === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+              <tr>
+                <td>621</td>
+                <td>Channel Load</td>
+                <td ng-show="data.alert.app2.Agent === 'OK'"><span class="label label-info">OK</span></td>
+                <td ng-show="data.alert.app2.Agent === 'WARNING'"><span class="label label-warning">WARNING</span></td>
+                <td ng-show="data.alert.app2.Agent === 'CRITICAL'"><span class="label label-danger">CRITICAL</span></td>
+                <td ng-show="data.alert.app2.Agent === 'WAIT'"><span class="label label-primary">WAITING</span></td>
+                <td class="text-right"><a href="#" target="_blank"><span class="demo-project-stats"><i class="fa fa-bar-chart fa-lg"></i></span></a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <!-- End App2 Stats -->
+
+
+  </div>
+  <!-- End First Row -->
+
+
+</div>
+<!-- END CONTAINER -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+<!-- Start Footer -->
+<div class="row footer">
+  <div class="col-md-6 text-left">
+  Copyright © <script>document.write(new Date().getFullYear())</script> <a href="#" target="_blank">Your Company</a> All rights reserved.
+  </div> 
+</div>
+<!-- End Footer -->
+
+
+</div>
+<!-- End Content -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="js/plugins.js"></script>
+
+
+
+</body>
+
+</html>
